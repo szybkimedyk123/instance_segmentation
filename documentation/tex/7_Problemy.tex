@@ -1,0 +1,12 @@
+\chapter{Encountered problems and their solutions}
+Working on any project does not come without any problems. Some of the ones we encountered, we managed to resolve, some we were able to omit. This chapter provides an overview of the issues we had to face.
+
+\section{The 'bottle' class}
+Initially, our dataset was supposed to consist of 8 classes, one of them being the \textit{bottle} class. Unfortunately we did not take into the account the fact that PVC bottles allow the light to pass through them. The depth data for bottles was inaccurate and it showed \textit{'floating particles'} in places where the light passed through the plastic surface. This has made it very hard for our program to detect and calculate bounding boxes for this class, hence why we were forced to exclude this class from our dataset. However, we do plan to add other classes to our dataset to expand it and we might look into ways of ignoring those floating fragments of the depth cloud while creating bounding boxes for semi-transparent objects.
+
+\section{Multiple cameras calibration - poor cable quality}
+Unfortunately, due to poor cable quality in the lab, some of the cameras were recognised by the software as connected by USB 2.1, and the others were shown to have a proper USB 3.2 connection. Since USB 2.1 provides worse image quality, it was an issue when trying to calibrate multiple cameras so that they could work together. While we didn't succeed in doing so thins semester, we will look into solving that problem in the future.
+
+\section{Starting up neural network models}
+While we tried to launch several different neural network models we found, we did not achieve complete success with any of them. With how quickly everything develops, lots of the models turned out to require older, outdated versions of various libraries and softawres, which we were not able to launch or acquire. While this problem remains unsolved for now, we plan to set up virtual machine environments and try to run these models again.
+

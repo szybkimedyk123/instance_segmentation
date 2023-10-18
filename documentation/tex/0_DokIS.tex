@@ -1,0 +1,36 @@
+\documentclass{pginz}
+
+%%%%%%%%%Miejsce na dodatkowe pakiety%%%%%%%%%%%%%
+\usepackage{subcaption}
+
+\begin{document}
+
+\include{1_Wprowadzenie}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Contents}
+
+% wprowadzenie (1 str),                     OK
+% przegląd podobnych rozwiązań (2 str),     OK
+% opis własnego rozwiązania (2 str),        OK
+% wyniki testów (2 str.),                   OK
+% podsumowanie (1 str),                     OK
+% dalsze możliwości (1 str.),               OK
+% napotkane problemy i rozwiązania (...)    OK
+% bibliografia (ok 30 pozycji).             OK
+% Wartości w nawiasach są orientacyjne (raczej minimalne).
+
+
+\include{2_Przeglad}
+\include{3_OpisRozw}
+\include{4_Testy}
+\include{5_Podsumowanie}
+\include{6_Dalsze}
+\include{7_Problemy}
+
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+
+\end{document}

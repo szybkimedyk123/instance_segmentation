@@ -1,0 +1,31 @@
+\chapter*{Introduction}
+
+The project described in this documentation consisted of developing an Instance Segmentation software using the image captured by an Intel RealSense D435 camera. It was realised in the summer semester of the 2022/23 academic year as part of the subject "Integrated decisive systems" (pl. \textit{Zintegrowane systemy decyzyjne}).
+
+\noindent The project team consisted of:
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item Jakub Pilarski - leader
+    \item Weronika Kapusta - vice-leader
+    \item Andrzejewski Miłosz
+    \item Iskrzycki Paweł
+    \item Kołoszko Mateusz 
+    \item Koncewicz Gabriela
+    \item Szymanek Tomasz
+    \item Urbański Filip 
+\end{itemize}
+
+The task required us to devise a method of Instance Segmentation. Afterwards, the shape of the object had to be determined based on the voxels belonging to it (by using e.g. a 3D bounding box). It was also necessary to devise our own dataset for model training.
+
+\noindent Our initial project assumptions were as following:
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item real-time work using RGBD RealSense D435 camera;
+    \item static objects detection;
+    \item object size limited from 0.1[m]x0.01[m]x0.01[m] to 1[m]x1[m]x1[m]
+    \item final accuracy
+    \begin{itemize}[noitemsep,topsep=0pt]
+        \item segmentation accuracy > 80\%
+        \item IoU > 60\%
+    \end{itemize}
+\end{itemize}
+
+The following document serves as a proof of our work during the semester as well as an explanation on the program's operating principles and user manual. The GitLab repository containing the project's source code can be found \href{https://git.pg.edu.pl/p1304095/zsd-is}{\textit{here}}.

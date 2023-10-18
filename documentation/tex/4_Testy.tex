@@ -1,0 +1,40 @@
+\chapter{Tests}
+We discussed training 3D object detection models using proprietary datasets in the previous chapters. Once the models have been trained, the next crucial step is testing their performance and evaluating their effectiveness. This chapter will explore the various aspects of testing 3D object detection models trained on proprietary datasets.
+
+We need a representative test dataset to evaluate the performance of our trained models. This dataset should ideally cover various scenarios, including different environmental conditions, object types, and object orientations. When using a proprietary dataset, ensuring that the test dataset is distinct and independent from the training data is essential to provide an unbiased evaluation.
+
+To achieve this, we can separate the proprietary dataset into three subsets: the training, validation and test sets. We used the commonly used  proportions of 70 to 15 to 15 percentages. The training and validation sets are used exclusively during the training phase, while the test set is reserved for evaluating the model's performance. It is essential to ensure no overlap between the two sets to maintain the integrity of the evaluation.
+
+\section{Evaluation Metrics}
+We need suitable evaluation metrics to assess the performance of 3D object detection models. These metrics assess the accuracy and robustness of the model's predictions. 
+
+\noindent We used the following metrics for 3D object detection:
+
+\begin{itemize}
+    \item \textbf{Intersection over Union (IoU):} IoU measures the overlap between the predicted and ground truth bounding boxes. It is computed by dividing the intersection volume by the union volume between the two boxes. This metric got used for three instances: 2D bounding boxes, instance masks and 3D bounding boxes.
+    \item \textbf{Mean Average Precision (mAP):} mAP is the Average Precision value across different object classes. It provides an overall assessment of the model's performance in multiple categories.
+    \item \textbf{Frames per second (FPS):} the frame rate at which consecutive images (frames) are captured or displayed. This metric is not typical for 3D object detection models, but in robotic environments or autonomous vehicles, the model’s speed is crucial. Obtained performance depends on many factors, like the number of objects in the scene and, most importantly, the camera's resolution. Because of that, in the summary of the model’s performance, we provided the results for two resolutions. 
+\end{itemize}
+
+\section{Testing Procedure}
+To conduct the testing process, we feed the test dataset into the trained 2D object detection model and evaluate its predictions against the ground truth annotations. The following steps outline the testing procedure:
+
+\begin{enumerate}
+    \item \textbf{Input Preprocessing:} Similar to the training phase, the test dataset requires preprocessing. This involves transforming images and masks' associated annotations into a suitable format compatible with the model's input requirements.
+    \item \textbf{Model Inference:} The preprocessed test data is passed through the instance segmentation model, which generates predictions for object classification and localisation. Our model defines localisation by two parameters: bounding box and mask.
+    \item \textbf{Post-processing:} The raw predictions from the model often require post-processing steps to refine and filter the results. This may involve non-maximum suppression to remove redundant bounding boxes or score thresholding to filter out low-confidence predictions.
+    \item \textbf{Evaluation:} Once the post-processing is complete, we compare the predicted bounding boxes, masks and labels with the ground truth annotations. We compute the evaluation metrics discussed earlier, including IoU and mAP to assess the model's performance on the test dataset.
+\end{enumerate}
+
+\section{Final statistics}
+The final performance of the solution is: 
+\begin{enumerate}[noitemsep]
+    \item Intersection over union 2D: 81.3\%
+    \item Intersection over union 3D: 80.9\%
+    \item Mean average precision: 89.8\%
+    \item Frame rate: 
+    \begin{enumerate}[noitemsep, topsep=0pt]
+        \item[-] 4 - 6 FPS for 1280x720 resolution 
+        \item[-] 10 - 14 FPS for 640x360 resolution
+    \end{enumerate}
+\end{enumerate}

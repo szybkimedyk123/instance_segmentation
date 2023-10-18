@@ -1,0 +1,12 @@
+\chapter{Further development possibilities}
+While working on the project, we tried to implement some solutions that did not work out in the end, mainly due to the lack of time. However, those failed attempts gave us ideas about the possible changes and improvements we could make in the future to make our program more accurate.
+
+\section{Multiple RGBD cameras}
+Attempts were made to integrate two RealSense cameras to get the same image from different angles, providing a more accurate point cloud. We did not succeed due to the problems with camera calibration, however if we were to continue the project, we would probably reattempt to do that with up to four cameras. Getting the depth data from four different angles would provide us with a very detailed point cloud with very few blind spots and an almost complete 3D reconstruction of the captured scenery, which would produce more accurate results for the 3DBB algorithm.
+
+\section{Neural network for 3DBB estimation}
+While we did experiment with different neural network models, in the end, we decided to go with an analytic approach, mostly due to the fact that a lot of models were outdated or required older versions of software and libraries which were very hard to acquire. There is a chance using a neural network to produce bounding boxes for objects would have given us more accurate results, however due to time constraints, we were forced to abandon the idea. We do, however, plan to try to run models again by setting up virtual machines with the required versions of the operating systems, libraries, software etc.
+
+\section{Expanding the range of detectable objects}
+The dataset which we worked on was supposed to consist of 8 classes, but due to different issues, it ended up containing only 7. This is a really small number of classes compared to the datasets available on the web. As of now, our datasets consist of about 900 RGBD images and over 5000 annotations of these seven classes, but we do plan to acquire more data and introduce more classes in the future.
+
